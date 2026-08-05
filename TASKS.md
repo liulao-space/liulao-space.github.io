@@ -16,7 +16,7 @@
 
 ## 🟢 二期
 
-- [ ] 6. 固化 OpenCode 智能体 `/vibe-log`：分析工作仓 → 脱敏草稿 → 配图 → 待确认发布（约定已在 content-policy/，无需回前台）
+- [x] 6. 固化 OpenCode 智能体 `/vibe-log`：分析工作仓 → 脱敏草稿 → 配图 → 待确认发布（约定已在 content-policy/，无需回前台）—— 已装到 `~/.config/opencode/skills/vibe-log/`（用户级，全仓可用）
 - [ ] 7. AI 位图替换：`docs/*/imgs/prompts/` 提示词已备好，等出图通道可用时把 SVG 换成 PNG
 - [ ] 8. 持续补充日志与案例：按 writing-prompt 模板扩展系列
 
