@@ -6,13 +6,13 @@
 ## 🔴 收尾正确性
 
 - [ ] 1. 抽查站内链接路由：确认 `/notes/`、`/vibe-coding/`、`/examples/` 无 404（user site base 已为 `/`，肉眼抽查 + grep 核验）
-- [ ] 2. GitHub 仓库 Settings → Pages：确认 Source = **GitHub Actions**（避免旧 branch 部署缓存叠加）
+- [x] 2. GitHub 仓库 Settings → Pages：确认 Source = **GitHub Actions**（避免旧 branch 部署缓存叠加）—— ⚠️ 已诊断：线上仍是 Jekyll 渲染 README（generator=Jekyll v3.10.0），Pages Source 实际是 *Deploy from a branch*；需手动改为 **GitHub Actions** 并重跑工作流
 
 ## 🟡 体验 / 工程
 
 - [ ] 3. 更新 GitHub 仓库 description：`前端学习记录` → `Vibe Coding 工程日志 · 前端深度笔记`
-- [ ] 4. 存一张站点首页截图（本地归档，便于分享）
-- [ ] 5. 全站链接健康检查脚本（grep 全部 markdown 内链，落脚本以便复用）
+- [~] 4. 存一张站点首页截图（本地归档，便于分享）—— 已存 `content-policy/screenshots/home.png`（线上还是 Jekyll，待 Source 改完重截）
+- [x] 5. 全站链接健康检查脚本（grep 全部 markdown 内链，落脚本以便复用）—— `scripts/check-links.mjs`，`npm run check:links` 通过（10 个 md）
 
 ## 🟢 二期
 
