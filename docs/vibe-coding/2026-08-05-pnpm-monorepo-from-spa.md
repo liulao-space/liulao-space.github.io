@@ -18,7 +18,7 @@
 1. 搞清**改了什么、为什么这样改**
 2. 补齐相关知识点（并链到 [卡片](/notes/)）
 3. 做一次轻量 Code Review：哪些值得学，哪些从零会做得不同
-4. 用公开 [mini-monorepo](/examples/mini-monorepo) 把模式跑通
+4. 用 [案例 mini-monorepo](/examples/mini-monorepo) 把模式跑通
 
 ![单仓到 monorepo 结构对比](./imgs/01-framework-before-after.svg)
 
@@ -216,9 +216,9 @@ export default defineNuxtConfig({
 > 在「已有大型 SPA + 要尽快加 Nuxt 门户」的约束下，同事的路径是合理 MVP。  
 > 若绿色田野从零开始，我会多做：catalog、turbo（或等价缓存）、共享 lint/tsconfig、CI affected、以及更快消灭双结构。
 
-## 我验证过的命令（教学 demo）
+## 我验证过的命令（案例）
 
-在本站仓库的 `examples/mini-monorepo`：
+在本站仓库的 `examples/mini-monorepo`（见 [案例页](/examples/mini-monorepo)）：
 
 ```bash
 cd examples/mini-monorepo
@@ -251,4 +251,4 @@ pnpm build:www
 - [pnpm Workspaces](https://pnpm.io/workspaces)  
 - [Nuxt Docs](https://nuxt.com/docs)  
 - [VitePress](https://vitepress.dev/)（本站即用）  
-- 本站：[mini-monorepo](/examples/mini-monorepo)
+- 本站：[案例列表](/examples/) · [mini-monorepo](/examples/mini-monorepo)

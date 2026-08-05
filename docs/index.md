@@ -9,18 +9,18 @@ hero:
       text: 最新日志
       link: /vibe-coding/2026-08-05-pnpm-monorepo-from-spa
     - theme: alt
-      text: 知识点卡片
+      text: 知识点
       link: /notes/
     - theme: alt
-      text: mini monorepo demo
-      link: /examples/mini-monorepo
+      text: 看案例
+      link: /examples/
 features:
-  - title: Vibe Coding 日志
-    details: 一次真实改造 = 一篇可读笔记。结构、命令、踩坑、Code Review 心得，配图帮助建立心智模型。
-  - title: 知识点卡片
-    details: monorepo、pnpm workspace、Nuxt vs SPA、共享包……概念拆开写，日志里交叉引用，方便复习。
-  - title: 可运行 Demo
-    details: 教学项目 learnspace，10 分钟跑通 monorepo 最小闭环：admin + www + 共享配置。
+  - title: 工程改造日志
+    details: 记录一次次真实重构怎么做的：目录怎么拆、命令怎么跑、坑在哪、如果重来会怎么改。
+  - title: 可检索知识点
+    details: monorepo、pnpm、Nuxt…拆成短文，日志里点进去就能补概念，不用整篇重读。
+  - title: 可点开的案例
+    details: 配套教学示例，点进去看结构与跑法；先读懂，再按需 clone 本地验证。
 ---
 
 ## 这个站是干什么的
@@ -38,4 +38,4 @@ features:
 |---------|------|
 | 单仓 SPA 如何拆成 pnpm monorepo | [最新日志](/vibe-coding/2026-08-05-pnpm-monorepo-from-spa) |
 | monorepo / pnpm / Nuxt 概念 | [知识点索引](/notes/) |
-| 自己动手跑一个最小 monorepo | [mini-monorepo](/examples/mini-monorepo) |
+| 对照可运行示例 | [案例列表](/examples/) |

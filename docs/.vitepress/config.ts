@@ -17,7 +17,7 @@ export default defineConfig({
       { text: '首页', link: '/' },
       { text: 'Vibe Coding', link: '/vibe-coding/' },
       { text: '知识点', link: '/notes/' },
-      { text: 'Demo', link: '/examples/mini-monorepo' },
+      { text: '案例', link: '/examples/' },
     ],
     sidebar: {
       '/vibe-coding/': [
@@ -46,8 +46,9 @@ export default defineConfig({
       ],
       '/examples/': [
         {
-          text: '可运行示例',
+          text: '案例',
           items: [
+            { text: '案例列表', link: '/examples/' },
             { text: 'mini-monorepo', link: '/examples/mini-monorepo' },
           ],
         },

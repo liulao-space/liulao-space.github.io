@@ -62,4 +62,4 @@ packages/
 ## 相关
 
 - [pnpm workspace](/notes/pnpm-workspace)  
-- [mini-monorepo demo](/examples/mini-monorepo)
+- [案例：mini-monorepo](/examples/mini-monorepo)

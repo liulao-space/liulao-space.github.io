@@ -12,4 +12,4 @@
 
 1. 先看日志里的 **Before / After** 与配图，建立结构直觉  
 2. 跳到 [知识点卡片](/notes/) 补概念  
-3. 用 [mini-monorepo](/examples/mini-monorepo) 自己跑一遍  
+3. 打开 [案例列表](/examples/)，点进示例对照验证
