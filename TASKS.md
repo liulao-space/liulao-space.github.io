@@ -10,7 +10,7 @@
 
 ## 🟡 体验 / 工程
 
-- [ ] 3. 更新 GitHub 仓库 description：`前端学习记录` → `Vibe Coding 工程日志 · 前端深度笔记`
+- [x] 3. 更新 GitHub 仓库 description：`前端学习记录` → `Vibe Coding 工程日志 · 前端深度笔记`（已生效）
 - [x] 4. 存一张站点首页截图（本地归档，便于分享）—— 线上 VitePress 版已存 `content-policy/screenshots/`（home-live / vibe-coding-live / notes-live）
 - [x] 5. 全站链接健康检查脚本（grep 全部 markdown 内链，落脚本以便复用）—— `scripts/check-links.mjs`，`npm run check:links` 通过（10 个 md）
 
