@@ -1,37 +1,63 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" fill="none">
-  <rect width="1280" height="720" fill="#FAFBFC"/>
-  <text x="640" y="56" text-anchor="middle" font-family="system-ui,sans-serif" font-size="30" font-weight="700" fill="#1F2937">务实改造 vs 从零更稳</text>
-  <text x="640" y="90" text-anchor="middle" font-family="system-ui,sans-serif" font-size="15" fill="#6B7280">同一目标 · 不同约束下的路径选择</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <pattern id="dots5" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.1" fill="#D6D0C4" opacity="0.55"/>
+    </pattern>
+    <filter id="s5" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#8B7355" flood-opacity="0.18"/>
+    </filter>
+    <linearGradient id="paper5" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FDFBF7"/>
+      <stop offset="100%" stop-color="#F6F1E7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#paper5)"/>
+  <rect width="1280" height="720" fill="url(#dots5)"/>
 
-  <!-- Left column -->
-  <rect x="80" y="130" width="520" height="520" rx="18" fill="#fff" stroke="#E5E7EB" stroke-width="2"/>
-  <rect x="80" y="130" width="520" height="64" rx="18" fill="#FEF3C7"/>
-  <rect x="80" y="178" width="520" height="16" fill="#FEF3C7"/>
-  <text x="340" y="172" text-anchor="middle" font-family="system-ui,sans-serif" font-size="22" font-weight="700" fill="#92400E">务实 MVP（本次路径）</text>
-
-  <g font-family="system-ui,sans-serif" font-size="18" fill="#374151">
-    <text x="120" y="250">• 纯 pnpm workspace</text>
-    <text x="120" y="300">• 先抽 unocss-config</text>
-    <text x="120" y="350">• 人肉 merge 检查清单</text>
-    <text x="120" y="400">• 根脚本代理到各 app</text>
-    <text x="120" y="450">• 门户先做最小可运行壳</text>
-    <text x="120" y="500">• 尽快验证「能并存开发」</text>
+  <g filter="url(#s5)" transform="translate(380 32) rotate(-1)">
+    <rect width="520" height="64" rx="10" fill="#D7EBFF"/>
+    <text x="260" y="42" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#1E3A5F">务实改造 vs 从零更稳</text>
   </g>
-  <text x="340" y="580" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#9CA3AF">适合：已有大仓 + 要快速加 Nuxt</text>
+  <text x="640" y="118" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="14" fill="#9A9080">同一目标 · 不同约束下的路径选择</text>
 
-  <!-- Right column -->
-  <rect x="680" y="130" width="520" height="520" rx="18" fill="#fff" stroke="#E5E7EB" stroke-width="2"/>
-  <rect x="680" y="130" width="520" height="64" rx="18" fill="#D1FAE5"/>
-  <rect x="680" y="178" width="520" height="16" fill="#D1FAE5"/>
-  <text x="940" y="172" text-anchor="middle" font-family="system-ui,sans-serif" font-size="22" font-weight="700" fill="#065F46">从零加强（重来会多做）</text>
+  <!-- left sticky -->
+  <g filter="url(#s5)" transform="translate(90 150) rotate(-1.8)">
+    <rect width="500" height="500" rx="18" fill="#FFF4D6"/>
+    <!-- tape -->
+    <rect x="200" y="-12" width="100" height="30" rx="3" fill="#E8D49A" opacity="0.9" transform="rotate(-3 250 3)"/>
+    <rect x="0" y="0" width="500" height="72" rx="18" fill="#FFE4A3"/>
+    <rect x="0" y="56" width="500" height="16" fill="#FFE4A3"/>
+    <text x="250" y="46" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="24" font-weight="700" fill="#8A5A00">务实 MVP（本次路径）</text>
 
-  <g font-family="system-ui,sans-serif" font-size="18" fill="#374151">
-    <text x="720" y="250">• + Turborepo cache / affected</text>
-    <text x="720" y="300">• pnpm catalog 锁大版本</text>
-    <text x="720" y="350">• 预留 eslint / tsconfig / ui</text>
-    <text x="720" y="400">• CI path filter 分 app 构建</text>
-    <text x="720" y="450">• 第一天定 Nuxt 渲染与部署</text>
-    <text x="720" y="500">• 缩短双结构并存期</text>
+    <g font-family="PingFang SC, sans-serif" font-size="20" fill="#4A3B1F">
+      <text x="48" y="130">•  纯 pnpm workspace</text>
+      <text x="48" y="185">•  先抽 unocss-config</text>
+      <text x="48" y="240">•  人肉 merge 检查清单</text>
+      <text x="48" y="295">•  根脚本代理到各 app</text>
+      <text x="48" y="350">•  门户先做最小可运行壳</text>
+      <text x="48" y="405">•  尽快验证「能并存开发」</text>
+    </g>
+    <rect x="40" y="440" width="420" height="36" rx="8" fill="#FFFBF0"/>
+    <text x="250" y="464" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="14" fill="#A67C2D">适合：已有大仓 + 要快速加 Nuxt</text>
   </g>
-  <text x="940" y="580" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#9CA3AF">适合：绿色田野 · 长期演进</text>
+
+  <!-- right sticky -->
+  <g filter="url(#s5)" transform="translate(690 148) rotate(1.6)">
+    <rect width="500" height="500" rx="18" fill="#E7F8EF"/>
+    <rect x="200" y="-12" width="100" height="30" rx="3" fill="#B5E4CB" opacity="0.95" transform="rotate(2 250 3)"/>
+    <rect x="0" y="0" width="500" height="72" rx="18" fill="#C8F0DB"/>
+    <rect x="0" y="56" width="500" height="16" fill="#C8F0DB"/>
+    <text x="250" y="46" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="24" font-weight="700" fill="#0F5C3A">从零加强（重来会多做）</text>
+
+    <g font-family="PingFang SC, sans-serif" font-size="20" fill="#1F4D36">
+      <text x="48" y="130">•  + Turborepo cache / affected</text>
+      <text x="48" y="185">•  pnpm catalog 锁大版本</text>
+      <text x="48" y="240">•  预留 eslint / tsconfig / ui</text>
+      <text x="48" y="295">•  CI path filter 分 app 构建</text>
+      <text x="48" y="350">•  第一天定 Nuxt 渲染与部署</text>
+      <text x="48" y="405">•  缩短双结构并存期</text>
+    </g>
+    <rect x="40" y="440" width="420" height="36" rx="8" fill="#F4FCF8"/>
+    <text x="250" y="464" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="14" fill="#2F7A56">适合：绿色田野 · 长期演进</text>
+  </g>
 </svg>

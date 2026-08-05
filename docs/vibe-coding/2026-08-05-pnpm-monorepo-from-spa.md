@@ -3,7 +3,7 @@
 > 系列：Vibe Coding · 2026-08-05  
 > 标签：`monorepo` `pnpm` `nuxt` `unocss` `code-review`  
 > 说明：教学示例，统一使用虚构项目名 `learnspace`。  
-> 配图：Notion 风 SVG 示意图；`imgs/prompts/` 保留出图提示词，可随时重出位图。
+> 配图：温暖纸感 + 便签笔记风示意图；`imgs/prompts/` 保留 AI 出图提示词，通道可用时可重出位图。
 
 ## 背景
 
