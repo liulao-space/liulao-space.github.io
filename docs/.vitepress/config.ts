@@ -18,13 +18,6 @@ export default defineConfig({
       { text: 'Vibe Coding', link: '/vibe-coding/' },
       { text: '知识点', link: '/notes/' },
       { text: 'Demo', link: '/examples/mini-monorepo' },
-      {
-        text: '关于',
-        items: [
-          { text: '公开边界', link: '/meta/disclosure' },
-          { text: '写作提示词', link: '/meta/writing-prompt' },
-        ],
-      },
     ],
     sidebar: {
       '/vibe-coding/': [
@@ -56,15 +49,6 @@ export default defineConfig({
           text: '可运行示例',
           items: [
             { text: 'mini-monorepo', link: '/examples/mini-monorepo' },
-          ],
-        },
-      ],
-      '/meta/': [
-        {
-          text: '关于本站',
-          items: [
-            { text: '公开边界', link: '/meta/disclosure' },
-            { text: '写作提示词', link: '/meta/writing-prompt' },
           ],
         },
       ],
@@ -100,7 +84,7 @@ export default defineConfig({
     sidebarMenuLabel: '菜单',
     darkModeSwitchLabel: '主题',
     footer: {
-      message: 'Vibe Coding 日志 · 脱敏公开 · 可复用工程知识',
+      message: 'Vibe Coding 工程日志 · 可复用前端知识',
       copyright: 'Copyright © 2026 liulao-space',
     },
   },

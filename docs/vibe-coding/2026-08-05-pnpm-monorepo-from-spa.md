@@ -2,8 +2,8 @@
 
 > 系列：Vibe Coding · 2026-08-05  
 > 标签：`monorepo` `pnpm` `nuxt` `unocss` `code-review`  
-> 说明：全文为**脱敏教学版**。真实工作场景只用于提炼模式，公开名统一为 `learnspace`。见 [公开边界](/meta/disclosure)。  
-> 配图：当前为 Notion 风 SVG 示意图（AI 出图通道不可用时的可读回退）；`imgs/prompts/` 保留 baoyu 提示词，可随时重出位图。
+> 说明：教学示例，统一使用虚构项目名 `learnspace`。  
+> 配图：Notion 风 SVG 示意图；`imgs/prompts/` 保留出图提示词，可随时重出位图。
 
 ## 背景
 
@@ -251,4 +251,4 @@ pnpm build:www
 - [pnpm Workspaces](https://pnpm.io/workspaces)  
 - [Nuxt Docs](https://nuxt.com/docs)  
 - [VitePress](https://vitepress.dev/)（本站即用）  
-- 本站：[mini-monorepo](/examples/mini-monorepo) · [公开边界](/meta/disclosure)
+- 本站：[mini-monorepo](/examples/mini-monorepo)

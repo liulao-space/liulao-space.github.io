@@ -1,6 +1,6 @@
 # Vibe Coding 日志
 
-把 AI 辅助开发中的真实改造，整理成可检索、可公开的工程笔记。
+把 AI 辅助开发中的真实改造，整理成可检索的工程笔记。
 
 ## 全部日志
 
@@ -13,5 +13,3 @@
 1. 先看日志里的 **Before / After** 与配图，建立结构直觉  
 2. 跳到 [知识点卡片](/notes/) 补概念  
 3. 用 [mini-monorepo](/examples/mini-monorepo) 自己跑一遍  
-
-写作规范见 [公开边界](/meta/disclosure) 与 [写作提示词](/meta/writing-prompt)。

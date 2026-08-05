@@ -67,6 +67,8 @@ examples/mini-monorepo/                  # 教学 demo，与公司无关
 1. 工作仓只读提炼  
 2. 脱敏成教学版正文  
 3. 配图并插入  
-4. 过 [公开边界](/meta/disclosure) checklist  
+4. 过 `content-policy/disclosure.md` checklist  
 5. 本地 `npm run dev` 预览  
 6. 确认后 commit / push `master`（Pages 自动部署）
+
+> 本目录仅供写稿约束，不进入 VitePress 站点导航与页面。
