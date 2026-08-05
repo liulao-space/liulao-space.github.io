@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="620" viewBox="0 0 1280 620">
+  <defs>
+    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.1" fill="#D6D0C4" opacity="0.55"/>
+    </pattern>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#8B7355" flood-opacity="0.18"/>
+    </filter>
+    <filter id="soft2" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#8B7355" flood-opacity="0.16"/>
+    </filter>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FDFBF7"/>
+      <stop offset="100%" stop-color="#F6F1E7"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="620" fill="url(#paper)"/>
+  <rect width="1280" height="620" fill="url(#dots)"/>
+
+  <g filter="url(#soft2)" transform="translate(340 34) rotate(-1.2)">
+    <rect width="600" height="70" rx="10" fill="#D7EBFF"/>
+    <rect x="18" y="0" width="18" height="70" fill="#B7D9FF" opacity="0.7"/>
+    <text x="300" y="44" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="28" font-weight="700" fill="#1E3A5F">Rust WASM 前端集成 · 构建链</text>
+  </g>
+
+  <g filter="url(#soft)" transform="translate(60 170)">
+    <rect width="260" height="180" rx="14" fill="#FFF4D6"/>
+    <text x="130" y="40" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, sans-serif" font-size="20" font-weight="700" fill="#8A5A00">① Rust 源码</text>
+    <text x="130" y="74" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="14" fill="#6B7280">lib.rs</text>
+    <text x="130" y="100" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="13" fill="#A67C2D">密钥 XOR 混淆段</text>
+    <text x="130" y="132" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="13" fill="#A67C2D">#[wasm_bindgen] 导出</text>
+    <text x="130" y="158" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="12" fill="#C9A24E">src/wasm/rust-lib/</text>
+  </g>
+
+  <path d="M 320 260 H 398" stroke="#3E94FF" stroke-width="3" fill="none" marker-end="url(#arrowBlue)"/>
+  <text x="360" y="240" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="13" fill="#3E94FF">cargo build</text>
+
+  <g filter="url(#soft)" transform="translate(430 170)">
+    <rect width="280" height="180" rx="14" fill="#E8F4E0"/>
+    <text x="140" y="40" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="20" font-weight="700" fill="#0F5C3A">② 编译产物</text>
+    <text x="140" y="74" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="14" fill="#2F7A56">wasm32-unknown-unknown</text>
+    <text x="40" y="106" font-family="monospace" font-size="14" fill="#333">target/…/wasm_lib.wasm</text>
+    <text x="140" y="140" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="13" fill="#5B9B7D">opt-level="s" + lto</text>
+    <text x="140" y="162" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="12" fill="#8AA880">体积优先的 release</text>
+  </g>
+
+  <path d="M 710 110 H 850 900" stroke="#A9BD3A" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <g transform="translate(760 90)">
+    <text x="0" y="0" font-family="PingFang SC, sans-serif" font-size="13" fill="#6B7A2A">wasm-bindgen</text>
+    <text x="0" y="20" font-family="PingFang SC, sans-serif" font-size="12" fill="#8A9A3A">--target web</text>
+  </g>
+
+  <g filter="url(#soft)" transform="translate(870 160)">
+    <rect width="340" height="200" rx="16" fill="#E8F1FF"/>
+    <text x="170" y="40" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="20" font-weight="700" fill="#1E3A5F">③ 胶水三件套</text>
+    <text x="170" y="72" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="14" fill="#4A6FA5">wasm_lib.js</text>
+    <text x="170" y="98" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="14" fill="#4A6FA5">wasm_lib_bg.wasm</text>
+    <text x="170" y="124" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="14" fill="#4A6FA5">wasm_lib.d.ts</text>
+    <text x="170" y="164" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="13" fill="#6B87B5">pkg/ 提交进仓库 ⚠️</text>
+  </g>
+
+  <g filter="url(#soft)" transform="translate(430 420)">
+    <rect width="280" height="150" rx="14" fill="#FFEFE6"/>
+    <text x="140" y="38" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="19" font-weight="700" fill="#B42318">④ 前端 import</text>
+    <text x="140" y="70" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="14" fill="#B96A5C">await init() 异步实例化</text>
+    <text x="140" y="126" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="13" fill="#C88A7E">Promise 单例缓存</text>
+  </g>
+
+  <g filter="url(#soft2)" transform="translate(70 420)">
+    <rect width="270" height="90" rx="12" fill="#FFF9EC" stroke="#E5D9B8"/>
+    <text x="135" y="60" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="14" fill="#8A7A62">前端只 import 胶水 .js，</text>
+    <text x="135" y="30" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="14" fill="#8A7A62">不直接碰 .wasm</text>
+  </g>
+
+  <path d="M 440 350 V 420" stroke="#E0A9D5" stroke-width="3" fill="none"/>
+  <path d="M 280 350 C 280 400 195 400 135 400" stroke="#E0A9D5" stroke-width="3" fill="none" stroke-dasharray="6 6"/>
+  <path d="M 860 360 H 1180 1140" stroke="#3E94FF" stroke-width="3" fill="none" marker-end="url(#arrow2)" stroke-dasharray="6 6"/>
+  <text x="1020" y="392" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="13" fill="#3E94FF">wasm:build 前置 dev/build</text>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#A9BD3A"/>
+    </marker>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3E94FF"/>
+    </marker>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3E94FF"/>
+    </marker>
+  </defs>
+</svg>

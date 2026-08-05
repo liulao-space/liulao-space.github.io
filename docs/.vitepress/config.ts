@@ -26,6 +26,10 @@ export default defineConfig({
           items: [
             { text: '日志索引', link: '/vibe-coding/' },
             {
+              text: 'Rust WASM 前端集成：密钥的真相',
+              link: '/vibe-coding/2026-08-05-rust-wasm-in-vite',
+            },
+            {
               text: '从单仓 SPA 到 pnpm Monorepo',
               link: '/vibe-coding/2026-08-05-pnpm-monorepo-from-spa',
             },

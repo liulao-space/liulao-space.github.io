@@ -6,6 +6,7 @@
 
 | 日期 | 标题 | 标签 |
 |------|------|------|
+| 2026-08-05 | [Rust WASM 前端集成实录：密钥"隐藏"的真相](/vibe-coding/2026-08-05-rust-wasm-in-vite) | wasm, rust, vite, security |
 | 2026-08-05 | [从单仓 SPA 到 pnpm Monorepo](/vibe-coding/2026-08-05-pnpm-monorepo-from-spa) | monorepo, pnpm, nuxt, unocss |
 
 ## 怎么读
