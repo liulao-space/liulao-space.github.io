@@ -5,13 +5,13 @@
 
 ## 🔴 收尾正确性
 
-- [x] 1. 抽查站内链接路由：确认 `/notes/`、`/vibe-coding/`、`/examples/` 无 404（user site base 已为 `/`，肉眼抽查 + grep 核验）—— 本地 preview 验证：8 个路由全部 200，三页内链抽查无坏链，无 console error
-- [x] 2. GitHub 仓库 Settings → Pages：确认 Source = **GitHub Actions**（避免旧 branch 部署缓存叠加）—— ⚠️ 已诊断：线上仍是 Jekyll 渲染 README（generator=Jekyll v3.10.0），Pages Source 实际是 *Deploy from a branch*；需手动改为 **GitHub Actions** 并重跑工作流
+- [x] 1. 抽查站内链接路由：确认 `/notes/`、`/vibe-coding/`、`/examples/` 无 404（user site base 已为 `/`，肉眼抽查 + grep 核验）—— ✅ 线上验证：Site 已切换 VitePress（generator=VitePress v1.6.4），8 个路由线上全部 200，无 console error
+- [x] 2. GitHub 仓库 Settings → Pages：确认 Source = **GitHub Actions**（避免旧 branch 部署缓存叠加）—— ✅ 已修复：线上从 Jekyll README 切回 VitePress（generator 已变），Pages Source 已生效
 
 ## 🟡 体验 / 工程
 
 - [ ] 3. 更新 GitHub 仓库 description：`前端学习记录` → `Vibe Coding 工程日志 · 前端深度笔记`
-- [x] 4. 存一张站点首页截图（本地归档，便于分享）—— 本地 VitePress 版已存 `content-policy/screenshots/`（home/vibe-coding/notes 三张 preview）；线上生效后可选重截
+- [x] 4. 存一张站点首页截图（本地归档，便于分享）—— 线上 VitePress 版已存 `content-policy/screenshots/`（home-live / vibe-coding-live / notes-live）
 - [x] 5. 全站链接健康检查脚本（grep 全部 markdown 内链，落脚本以便复用）—— `scripts/check-links.mjs`，`npm run check:links` 通过（10 个 md）
 
 ## 🟢 二期
