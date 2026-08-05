@@ -56,6 +56,12 @@ learnspace/
     └── unocss-config/        # @learnspace/unocss-config
 ```
 
+::: details 原理侧注：为什么「git mv 进 apps/core」能保留历史？
+Git 的 merge-ort 合并算法会对删除 + 新增文件做**相似度检测**（比较内容指纹），
+`git mv` 只是把这一语义显式化。只要内容是**同 blob**，`git log --follow` 就能追到迁移前的提交。
+反之，如果同事用「复制粘贴再删除」，历史就断在复制那一刻——这是迁移仓库时最容易丢 blame 的操作。
+:::
+
 ### 根目录变成「遥控器」
 
 ```json
@@ -109,6 +115,13 @@ export { default } from '@learnspace/unocss-config'
 }
 ```
 
+::: details 原理侧注：`workspace:*` 到底做了什么？
+安装时 pnpm 做三件事：① 把 `workspace:*` 解析为本地包目录（**不查 registry**）；
+② 用 symlink 把 `packages/unocss-config` 链接进 `apps/www/node_modules`；
+③ 在依赖图中记录这条边（`--filter`、拓扑构建都靠它）。
+而**发布到 npm 时，`workspace:*` 会被改写为真实版本号**——本地开发与发布产物在此分叉。
+:::
+
 ![workspace 依赖关系](./imgs/03-framework-workspace-deps.svg)
 
 ### Nuxt 门户先做「能跑的壳」
@@ -153,14 +166,23 @@ export default defineNuxtConfig({
 
 ![双结构合并检查流](./imgs/04-flowchart-merge-checklist.svg)
 
+::: details 原理侧注：为什么「双结构并存」会这么痛？
+合并时 git 面对的不是「改了几个文件」，而是**两套根配置**（根 package.json / .gitignore / CI 脚本）在同一位置反复冲突。
+只要主干还是旧平铺结构，每次 release 合并都会把「改名检测」跑一遍：多数业务文件能自动落到 `apps/*`，
+但**根级配置文件与新增文件必须人肉核对**——这就是检查清单存在的根本原因。
+真正的解法不是更强的清单，而是**缩短并存期**：尽快让主干也变成 monorepo。
+:::
+
 ## 知识点速通
 
-| 主题 | 卡片 |
-|------|------|
-| 多包同仓 | [Monorepo](/notes/monorepo) |
-| workspace 与 filter | [pnpm workspace](/notes/pnpm-workspace) |
-| 为何 admin / www 技术栈不同 | [Nuxt vs Vite SPA](/notes/nuxt-vs-vite-spa) |
-| `workspace:*` 与单向依赖 | [共享包](/notes/shared-packages) |
+> 下面 4 篇卡片已做「深度原理」改写，适合完整读一遍；本日志只给入门结论。
+
+| 主题 | 卡片 | 深度看点 |
+|------|------|----------|
+| 多包同仓 | [Monorepo](/notes/monorepo) | 依赖 DAG · 版本策略 · 工具链演进 |
+| workspace 与 filter | [pnpm workspace](/notes/pnpm-workspace) | 幽灵依赖 · store/hardlink · filter 图选择器 |
+| 为何 admin / www 技术栈不同 | [Nuxt vs Vite SPA](/notes/nuxt-vs-vite-spa) | 渲染谱系 · hydration · 双端数据 |
+| `workspace:*` 与单向依赖 | [共享包](/notes/shared-packages) | 契约思维 · 发布改写 · exports 锁面 |
 
 ## 值得抄的写法
 
@@ -211,6 +233,12 @@ export default defineNuxtConfig({
 | CI/部署 | 根脚本代理到 admin | path filter：只 build 变更 app；流水线分离 |
 | 包边界 | 样式共享 | 禁止 packages → apps；画单向依赖图 |
 
+::: details 原理侧注：Turborepo 的缓存靠什么命中？
+Turborepo 把每个任务的**输入文件内容做 hash**（源码 + 依赖图 + 环境），hash 相同 → 直接复用产物。
+改一个共享包，只有它和它的**下游**缓存失效（依赖图传播），无关包全部命中。
+远程缓存（Remote Cache）把这份产物存到云端，CI 与本地共享——这才是「构建从分钟级到秒级」的原理。
+:::
+
 **诚实结论：**
 
 > 在「已有大型 SPA + 要尽快加 Nuxt 门户」的约束下，同事的路径是合理 MVP。  
@@ -245,6 +273,23 @@ pnpm build:www
 - [ ] pnpm catalog 实战  
 - [ ] Turborepo `pipeline` 与远程缓存（可选）  
 - [ ] monorepo CI：变更检测 + 并行 build  
+
+## 面试官可能问（自测）
+
+1. **幽灵依赖是什么？pnpm 为什么能根治？**  
+   → 代码 import 了没在 `package.json` 声明的包（hoisted 布局碰巧存在）。pnpm 用 isolated 布局只链接声明过的依赖，从机制上杜绝。
+
+2. **两个项目都装 vue，磁盘为什么只占一份？**  
+   → pnpm store 是内容寻址的全局存储，项目里是 hardlink 指向同一 inode，不复制数据。
+
+3. **`pnpm -r run build` 按什么顺序构建？**  
+   → 依赖图拓扑序：被依赖的包先构建。
+
+4. **为什么 `workspace:*` 只存在于仓库内？**  
+   → 发布到 npm 时会被改写为实际版本号，消费方拿到的是普通 semver 依赖。
+
+5. **Nuxt 门户为什么值得 SSR，而 admin 不用？**  
+   → 门户需要 HTML 内容（SEO 爬虫、社交卡片、弱网首屏），admin 是登录后复杂交互，CSR 足够。见 [渲染原理卡片](/notes/nuxt-vs-vite-spa)。
 
 ## 参考
 
