@@ -1,0 +1,11 @@
+{
+  "name": "learnspace",
+  "private": true,
+  "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "dev:admin": "pnpm --filter admin dev",
+    "dev:www": "pnpm --filter www dev",
+    "build:admin": "pnpm --filter admin build",
+    "build:www": "pnpm --filter www build"
+  }
+}

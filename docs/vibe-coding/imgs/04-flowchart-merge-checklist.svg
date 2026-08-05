@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" fill="none">
+  <rect width="1280" height="720" fill="#FAFBFC"/>
+  <text x="640" y="56" text-anchor="middle" font-family="system-ui,sans-serif" font-size="30" font-weight="700" fill="#1F2937">双结构合并检查清单</text>
+  <text x="640" y="90" text-anchor="middle" font-family="system-ui,sans-serif" font-size="15" fill="#6B7280">主干仍是旧目录 · 特性分支已是 monorepo 时</text>
+
+  <!-- steps horizontal-ish as vertical stack of cards -->
+  <g font-family="system-ui,sans-serif">
+    <!-- 1 -->
+    <rect x="200" y="120" width="880" height="88" rx="14" fill="#fff" stroke="#E5E7EB" stroke-width="2"/>
+    <circle cx="260" cy="164" r="24" fill="#3E94FF"/>
+    <text x="260" y="172" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">1</text>
+    <text x="310" y="158" font-size="20" font-weight="700" fill="#111827">迁移先提交干净</text>
+    <text x="310" y="186" font-size="15" fill="#6B7280">未提交的 monorepo 迁移 + merge = 新旧文件并存</text>
+
+    <!-- 2 -->
+    <rect x="200" y="228" width="880" height="88" rx="14" fill="#fff" stroke="#E5E7EB" stroke-width="2"/>
+    <circle cx="260" cy="272" r="24" fill="#3E94FF"/>
+    <text x="260" y="280" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">2</text>
+    <text x="310" y="266" font-size="20" font-weight="700" fill="#111827">merge 主干</text>
+    <text x="310" y="294" font-size="15" fill="#6B7280">git merge origin/main（或你们的发布分支）</text>
+
+    <!-- 3 -->
+    <rect x="200" y="336" width="880" height="88" rx="14" fill="#fff" stroke="#E5E7EB" stroke-width="2"/>
+    <circle cx="260" cy="380" r="24" fill="#3E94FF"/>
+    <text x="260" y="388" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">3</text>
+    <text x="310" y="374" font-size="20" font-weight="700" fill="#111827">检查根目录无旧 src</text>
+    <text x="310" y="402" font-size="15" fill="#6B7280">新增文件应落在 apps/*，不要回到仓库根</text>
+
+    <!-- 4 -->
+    <rect x="200" y="444" width="880" height="88" rx="14" fill="#fff" stroke="#E5E7EB" stroke-width="2"/>
+    <circle cx="260" cy="488" r="24" fill="#3E94FF"/>
+    <text x="260" y="496" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">4</text>
+    <text x="310" y="482" font-size="20" font-weight="700" fill="#111827">守护子包 package.json</text>
+    <text x="310" y="510" font-size="15" fill="#6B7280">name 正确 · 无自引用 · husky 留在根</text>
+
+    <!-- 5 -->
+    <rect x="200" y="552" width="880" height="88" rx="14" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="2"/>
+    <circle cx="260" cy="596" r="24" fill="#10B981"/>
+    <text x="260" y="604" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">5</text>
+    <text x="310" y="590" font-size="20" font-weight="700" fill="#065F46">pnpm install + 冒烟验证</text>
+    <text x="310" y="618" font-size="15" fill="#047857">type-check · admin/www 能启动</text>
+  </g>
+</svg>

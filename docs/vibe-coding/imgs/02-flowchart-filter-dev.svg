@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" fill="none">
+  <rect width="1280" height="720" fill="#FAFBFC"/>
+  <text x="640" y="64" text-anchor="middle" font-family="system-ui,sans-serif" font-size="32" font-weight="700" fill="#1F2937">pnpm --filter 启动流程</text>
+  <text x="640" y="100" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" fill="#6B7280">根目录安装一次 · 按包名启动应用</text>
+
+  <!-- Step 1 -->
+  <rect x="390" y="140" width="500" height="72" rx="14" fill="#3E94FF"/>
+  <text x="640" y="185" text-anchor="middle" font-family="ui-monospace,monospace" font-size="22" font-weight="600" fill="#fff">pnpm install（根目录）</text>
+
+  <path d="M640 212 V260" stroke="#93C5FD" stroke-width="3"/>
+  <path d="M640 260 L420 300 M640 260 L860 300" stroke="#93C5FD" stroke-width="3"/>
+  <path d="M420 300 V320 M860 300 V320" stroke="#93C5FD" stroke-width="3"/>
+
+  <!-- Branch boxes -->
+  <rect x="200" y="320" width="360" height="80" rx="14" fill="#fff" stroke="#3E94FF" stroke-width="2"/>
+  <text x="380" y="368" text-anchor="middle" font-family="ui-monospace,monospace" font-size="18" font-weight="600" fill="#1D4ED8">pnpm --filter admin dev</text>
+
+  <rect x="720" y="320" width="360" height="80" rx="14" fill="#fff" stroke="#3E94FF" stroke-width="2"/>
+  <text x="900" y="368" text-anchor="middle" font-family="ui-monospace,monospace" font-size="18" font-weight="600" fill="#1D4ED8">pnpm --filter www dev</text>
+
+  <path d="M380 400 V450 M900 400 V450" stroke="#93C5FD" stroke-width="3"/>
+  <path d="M370 440 L380 460 L390 440 M890 440 L900 460 L910 440" fill="#93C5FD"/>
+
+  <!-- Results -->
+  <rect x="200" y="460" width="360" height="100" rx="14" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="2"/>
+  <text x="380" y="505" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#065F46">apps/admin</text>
+  <text x="380" y="535" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" fill="#047857">Vite SPA · localhost:5173</text>
+
+  <rect x="720" y="460" width="360" height="100" rx="14" fill="#EEF2FF" stroke="#A5B4FC" stroke-width="2"/>
+  <text x="900" y="505" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#3730A3">apps/www</text>
+  <text x="900" y="535" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" fill="#4338CA">Nuxt · localhost:3000</text>
+
+  <text x="640" y="640" text-anchor="middle" font-family="system-ui,sans-serif" font-size="15" fill="#9CA3AF">filter 匹配的是子包 package.json 里的 name 字段</text>
+</svg>

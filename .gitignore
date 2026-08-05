@@ -1,0 +1,12 @@
+node_modules
+docs/.vitepress/dist
+docs/.vitepress/cache
+.DS_Store
+*.local
+.temp
+.cache
+examples/**/node_modules
+examples/**/.nuxt
+examples/**/.output
+examples/**/.data
+examples/**/dist

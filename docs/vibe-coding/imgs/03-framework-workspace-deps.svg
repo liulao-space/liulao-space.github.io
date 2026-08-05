@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" fill="none">
+  <rect width="1280" height="720" fill="#FAFBFC"/>
+  <text x="640" y="64" text-anchor="middle" font-family="system-ui,sans-serif" font-size="32" font-weight="700" fill="#1F2937">workspace:* 依赖方向</text>
+  <text x="640" y="100" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" fill="#6B7280">apps 依赖 packages · 禁止反向</text>
+
+  <!-- Apps -->
+  <rect x="180" y="160" width="340" height="120" rx="16" fill="#fff" stroke="#3E94FF" stroke-width="3"/>
+  <text x="350" y="215" text-anchor="middle" font-family="ui-monospace,monospace" font-size="24" font-weight="700" fill="#1D4ED8">apps/admin</text>
+  <text x="350" y="250" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#6B7280">Vite + Vue SPA</text>
+
+  <rect x="760" y="160" width="340" height="120" rx="16" fill="#fff" stroke="#3E94FF" stroke-width="3"/>
+  <text x="930" y="215" text-anchor="middle" font-family="ui-monospace,monospace" font-size="24" font-weight="700" fill="#1D4ED8">apps/www</text>
+  <text x="930" y="250" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#6B7280">Nuxt 门户</text>
+
+  <!-- Arrows down -->
+  <path d="M350 280 V400" stroke="#3E94FF" stroke-width="4" stroke-linecap="round"/>
+  <path d="M340 380 L350 410 L360 380" fill="#3E94FF"/>
+  <path d="M930 280 V400" stroke="#3E94FF" stroke-width="4" stroke-linecap="round"/>
+  <path d="M920 380 L930 410 L940 380" fill="#3E94FF"/>
+  <text x="280" y="350" font-family="ui-monospace,monospace" font-size="14" fill="#3E94FF">workspace:*</text>
+  <text x="960" y="350" font-family="ui-monospace,monospace" font-size="14" fill="#3E94FF">workspace:*</text>
+
+  <!-- Package -->
+  <rect x="340" y="420" width="600" height="120" rx="16" fill="#ECFDF5" stroke="#10B981" stroke-width="3"/>
+  <text x="640" y="475" text-anchor="middle" font-family="ui-monospace,monospace" font-size="22" font-weight="700" fill="#065F46">packages/unocss-config</text>
+  <text x="640" y="510" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" fill="#047857">@learnspace/unocss-config</text>
+
+  <!-- Forbidden -->
+  <rect x="390" y="580" width="500" height="70" rx="12" fill="#FEF2F2" stroke="#FECACA" stroke-width="2"/>
+  <text x="640" y="625" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="600" fill="#B91C1C">✕ 禁止 packages → apps（单向依赖）</text>
+</svg>

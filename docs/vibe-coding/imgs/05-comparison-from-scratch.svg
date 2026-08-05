@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" fill="none">
+  <rect width="1280" height="720" fill="#FAFBFC"/>
+  <text x="640" y="56" text-anchor="middle" font-family="system-ui,sans-serif" font-size="30" font-weight="700" fill="#1F2937">务实改造 vs 从零更稳</text>
+  <text x="640" y="90" text-anchor="middle" font-family="system-ui,sans-serif" font-size="15" fill="#6B7280">同一目标 · 不同约束下的路径选择</text>
+
+  <!-- Left column -->
+  <rect x="80" y="130" width="520" height="520" rx="18" fill="#fff" stroke="#E5E7EB" stroke-width="2"/>
+  <rect x="80" y="130" width="520" height="64" rx="18" fill="#FEF3C7"/>
+  <rect x="80" y="178" width="520" height="16" fill="#FEF3C7"/>
+  <text x="340" y="172" text-anchor="middle" font-family="system-ui,sans-serif" font-size="22" font-weight="700" fill="#92400E">务实 MVP（本次路径）</text>
+
+  <g font-family="system-ui,sans-serif" font-size="18" fill="#374151">
+    <text x="120" y="250">• 纯 pnpm workspace</text>
+    <text x="120" y="300">• 先抽 unocss-config</text>
+    <text x="120" y="350">• 人肉 merge 检查清单</text>
+    <text x="120" y="400">• 根脚本代理到各 app</text>
+    <text x="120" y="450">• 门户先做最小可运行壳</text>
+    <text x="120" y="500">• 尽快验证「能并存开发」</text>
+  </g>
+  <text x="340" y="580" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#9CA3AF">适合：已有大仓 + 要快速加 Nuxt</text>
+
+  <!-- Right column -->
+  <rect x="680" y="130" width="520" height="520" rx="18" fill="#fff" stroke="#E5E7EB" stroke-width="2"/>
+  <rect x="680" y="130" width="520" height="64" rx="18" fill="#D1FAE5"/>
+  <rect x="680" y="178" width="520" height="16" fill="#D1FAE5"/>
+  <text x="940" y="172" text-anchor="middle" font-family="system-ui,sans-serif" font-size="22" font-weight="700" fill="#065F46">从零加强（重来会多做）</text>
+
+  <g font-family="system-ui,sans-serif" font-size="18" fill="#374151">
+    <text x="720" y="250">• + Turborepo cache / affected</text>
+    <text x="720" y="300">• pnpm catalog 锁大版本</text>
+    <text x="720" y="350">• 预留 eslint / tsconfig / ui</text>
+    <text x="720" y="400">• CI path filter 分 app 构建</text>
+    <text x="720" y="450">• 第一天定 Nuxt 渲染与部署</text>
+    <text x="720" y="500">• 缩短双结构并存期</text>
+  </g>
+  <text x="940" y="580" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#9CA3AF">适合：绿色田野 · 长期演进</text>
+</svg>
