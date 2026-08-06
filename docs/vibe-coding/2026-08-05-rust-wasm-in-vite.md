@@ -1,3 +1,10 @@
+---
+title: Rust WASM 前端集成实录：密钥"隐藏"的真相
+date: 2026-08-05
+tags: [wasm, rust, vite, security, code-review]
+series: vibe-coding
+---
+
 # Rust WASM 前端集成实录：密钥"隐藏"的真相
 
 > 系列：Vibe Coding · 2026-08-05  

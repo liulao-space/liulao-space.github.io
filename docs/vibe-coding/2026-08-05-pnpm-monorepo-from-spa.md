@@ -1,3 +1,10 @@
+---
+title: 从单仓 SPA 到 pnpm Monorepo
+date: 2026-08-05
+tags: [monorepo, pnpm, nuxt, unocss, code-review]
+series: vibe-coding
+---
+
 # 从单仓 SPA 到 pnpm Monorepo
 
 > 系列：Vibe Coding · 2026-08-05  

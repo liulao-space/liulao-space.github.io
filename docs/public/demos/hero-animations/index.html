@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero 动效教学演示 · 纯 CSS</title>
+<meta name="description" content="Vibe Coding 教学演示：breathe / halo-rotate / aurora-sweep / particle-float / enter-up 五种纯 CSS 动效组合">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #F6F1E7;
+    color: #2C2416;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 16px 24px;
+  }
+
+  h1 { font-size: 22px; color: #1E3A5F; margin-bottom: 6px; }
+  .sub { font-size: 13px; color: #8A7A62; margin-bottom: 24px; text-align: center; }
+  .sub a { color: #3E94FF; text-decoration: none; }
+
+  /* ============ Hero 舞台（教学版） ============ */
+  .hero {
+    position: relative;
+    width: min(960px, 100%);
+    height: 420px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0B2A5B 0%, #14458C 55%, #1E6FD9 100%);
+    box-shadow: 0 18px 40px rgba(30, 58, 95, 0.28);
+  }
+
+  /* 极光扫光：skewX 倾斜的渐变光带，左右平移 + 透明度 */
+  .hero__aurora {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 30%, rgba(120, 200, 255, 0.35) 50%, transparent 70%);
+    transform: translateX(-12%) skewX(-6deg);
+    animation: aurora-sweep 9s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes aurora-sweep {
+    0%, 100% { transform: translateX(-12%) skewX(-6deg); opacity: 0.6; }
+    50%      { transform: translateX(12%)  skewX(-6deg); opacity: 1; }
+  }
+
+  /* 主视觉：渐变占位「球」，呼吸缩放（只动 transform） */
+  .hero__visual {
+    position: absolute;
+    right: 7%;
+    top: 50%;
+    width: 210px;
+    height: 210px;
+    margin-top: -105px;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 32% 28%, #9BD4FF 0%, #4E9BEE 42%, #1B5FB8 78%, #0F3E82 100%);
+    box-shadow: inset -18px -22px 50px rgba(8, 30, 70, 0.45), 0 24px 60px rgba(0, 0, 0, 0.35);
+    transform: translateZ(0);
+    animation: breathe 4.5s ease-in-out infinite;
+  }
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.02); }
+  }
+
+  /* 光环：绕主视觉中心自转的虚线环 */
+  .hero__halo {
+    position: absolute;
+    right: 7%;
+    top: 50%;
+    width: 300px;
+    height: 300px;
+    margin: -150px 0 0 -45px;
+    border: 2px dashed rgba(160, 210, 255, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: halo-rotate 14s linear infinite;
+    pointer-events: none;
+  }
+  @keyframes halo-rotate {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  /* 微粒子：8 个光点，位置写死 + 不同 delay/duration 错开节奏 */
+  .hero__particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #BFE3FF;
+    box-shadow: 0 0 8px rgba(140, 200, 255, 0.9);
+    animation: particle-float 6s ease-in-out infinite;
+    pointer-events: none;
+  }
+  .hero__particle--1 { left: 12%; top: 22%; animation-delay: 0s; }
+  .hero__particle--2 { left: 28%; top: 68%; animation-delay: 1.2s; animation-duration: 7s; }
+  .hero__particle--3 { left: 55%; top: 10%; animation-delay: 2.1s; width: 3px; height: 3px; }
+  .hero__particle--4 { left: 78%; top: 30%; animation-delay: 0.6s; animation-duration: 8s; }
+  .hero__particle--5 { left: 88%; top: 62%; animation-delay: 3s; width: 3px; height: 3px; }
+  .hero__particle--6 { left: 62%; top: 84%; animation-delay: 1.8s; }
+  .hero__particle--7 { left: 40%; top: 40%; animation-delay: 2.7s; animation-duration: 7.5s; width: 2px; height: 2px; }
+  .hero__particle--8 { left: 8%;  top: 52%; animation-delay: 4s; width: 3px; height: 3px; }
+  @keyframes particle-float {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.25; }
+    50%      { transform: translateY(-26px) scale(1.35); opacity: 1; }
+  }
+
+  /* 文本区：入场 stagger，--enter-delay 控制先后 */
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    padding: 64px 56px;
+    color: #fff;
+    max-width: 58%;
+  }
+  .hero__title {
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    opacity: 0;
+    animation: enter-up 0.6s ease-out forwards;
+    animation-delay: var(--enter-delay, 0s);
+  }
+  .hero__desc {
+    margin-top: 14px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.82);
+    opacity: 0;
+    animation: enter-up 0.6s ease-out forwards;
+    animation-delay: var(--enter-delay, 0s);
+  }
+  .hero__actions { margin-top: 26px; display: flex; gap: 12px; }
+  .hero__btn {
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    opacity: 0;
+    animation: enter-up 0.6s ease-out forwards;
+    animation-delay: var(--enter-delay, 0s);
+  }
+  .hero__btn--primary { background: #fff; color: #1E3A5F; font-weight: 700; }
+  .hero__btn--ghost   { background: rgba(255, 255, 255, 0.14); color: #fff; }
+  @keyframes enter-up {
+    from { transform: translateY(20px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+
+  /* 底部滚动提示 */
+  .hero__hint {
+    position: absolute;
+    bottom: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    width: 24px;
+    height: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.65);
+    border-radius: 14px;
+  }
+  .hero__hint::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 8px;
+    width: 4px;
+    height: 4px;
+    margin-left: -2px;
+    border-radius: 50%;
+    background: #fff;
+    animation: wheel-drop 2s ease-in-out infinite;
+  }
+  @keyframes wheel-drop {
+    0%   { transform: translateY(0); opacity: 1; }
+    70%  { transform: translateY(14px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 0; }
+  }
+
+  /* 重播按钮：整块动画重新跑 */
+  .toolbar { margin-top: 20px; display: flex; gap: 14px; align-items: center; }
+  button.replay {
+    padding: 9px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #3E94FF;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  button.replay:hover { background: #2E7EE0; }
+
+  .note {
+    margin-top: 18px;
+    max-width: 960px;
+    font-size: 12px;
+    line-height: 1.8;
+    color: #9A9080;
+    text-align: center;
+  }
+  .note code {
+    background: #EFE8DB;
+    padding: 1px 6px;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+
+  <h1>Hero 动效教学演示</h1>
+  <p class="sub">对应日志：<a href="/vibe-coding/2026-08-06-course-display-duo-dev">一侧配置、一侧展示：双端并行开发</a> · 教学版，主视觉为 CSS 渐变占位</p>
+
+  <section class="hero" id="hero">
+    <div class="hero__aurora" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <div class="hero__title" style="--enter-delay:.05s">课程图谱 · 一站式学习</div>
+      <p class="hero__desc" style="--enter-delay:.22s">从大纲到知识宇宙，从能力图谱到问题图谱——课程内容结构化呈现，</p>
+      <p class="hero__desc" style="--enter-delay:.22s">这里是教学版占位文案，演示五种纯 CSS 动效如何叠加。</p>
+      <div class="hero__actions">
+        <button class="hero__btn hero__btn--primary" style="--enter-delay:.38s">进入课程</button>
+        <button class="hero__btn hero__btn--ghost" style="--enter-delay:.46s">了解更多</button>
+      </div>
+    </div>
+
+    <div class="hero__visual" aria-hidden="true"></div>
+    <div class="hero__halo" aria-hidden="true"></div>
+
+    <span class="hero__particle hero__particle--1" aria-hidden="true"></span>
+    <span class="hero__particle hero__particle--2" aria-hidden="true"></span>
+    <span class="hero__particle hero__particle--3" aria-hidden="true"></span>
+    <span class="hero__particle hero__particle--4" aria-hidden="true"></span>
+    <span class="hero__particle hero__particle--5" aria-hidden="true"></span>
+    <span class="hero__particle hero__particle--6" aria-hidden="true"></span>
+    <span class="hero__particle hero__particle--7" aria-hidden="true"></span>
+    <span class="hero__particle hero__particle--8" aria-hidden="true"></span>
+
+    <div class="hero__hint" aria-hidden="true"></div>
+  </section>
+
+  <div class="toolbar">
+    <button class="replay" id="replay">重播入场动画</button>
+  </div>
+
+  <p class="note">
+    五种关键帧：<code>breathe</code>（呼吸 4.5s）· <code>halo-rotate</code>（光环自转 14s）·
+    <code>aurora-sweep</code>（极光扫光 9s）· <code>particle-float</code>（8 粒子错峰 6~8s）·
+    <code>enter-up</code>（入场 stagger，由 <code>--enter-delay</code> 控制）<br>
+    要点：所有动效只作用于 <code>transform</code> / <code>opacity</code>，避免 layout 重排；粒子用写死的
+    <code>left/top + delay</code> 而不是 JS 随机，保证 SSR 前后一致。
+  </p>
+
+<script>
+  // 重播：重新触发入场动画（教学演示交互）
+  const hero = document.getElementById('hero')
+  document.getElementById('replay').addEventListener('click', () => {
+    hero.style.animation = 'none'
+    void hero.offsetHeight          // 强制 reflow，重置动画
+    hero.style.animation = ''
+    hero.querySelectorAll('.hero__title, .hero__desc, .hero__btn').forEach((el) => {
+      el.style.animation = 'none'
+      void el.offsetHeight
+      el.style.animation = ''
+    })
+  })
+</script>
+</body>
+</html>

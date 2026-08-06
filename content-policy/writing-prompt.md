@@ -16,10 +16,12 @@
 # 任务（按顺序）
 1. 只读分析：目录、关键配置、值得学的模式、潜在风险
 2. 知识提炼：概念 → 为什么需要 → 本场景怎么做 → 命令/片段 → 踩坑
-3. 轻量 code review：优点 + 可改进（对事不对人）
-4. 按模板写脱敏 Markdown；配图位标注（framework / flowchart / comparison）
-5. 给出「若从零重来 / 加新功能」的更好解法对比
-6. 先给提纲，我确认后再写全文；推远程前必须再确认
+3. 价值门：知识可迁移？未来会查？一句话新知？全否 → 不写，只记 TASKS
+4. 演示分级：A 静态可看（`docs/public/demos/<slug>/`，零依赖单文件）/ B 工程可跑（`examples/`）/ C 跳过
+5. 轻量 code review：优点 + 可改进（对事不对人）
+6. 按模板写脱敏 Markdown；配图位标注（framework / flowchart / comparison）
+7. 给出「若从零重来 / 加新功能」的更好解法对比
+8. 先给提纲，我确认后再写全文；推远程前必须再确认
 
 # 硬约束
 - 禁止泄露：密钥、token、内网、客户/租户、未公开业务
@@ -32,9 +34,11 @@
 ---
 title:
 date: YYYY-MM-DD
-tags: []
+tags: []        # 必填 2~4 个，标签索引脚本依赖 frontmatter
 series: vibe-coding
 ---
+
+> 在线预览：若关联 A/B 级 demo，在此放 `/demos/<slug>/` 或案例链接
 
 ## 背景
 ## 我原来不懂什么
@@ -59,16 +63,18 @@ series: vibe-coding
 docs/vibe-coding/YYYY-MM-DD-slug.md
 docs/vibe-coding/YYYY-MM-DD-slug/imgs/   # 或文章旁 imgs/
 docs/notes/*.md
-examples/mini-monorepo/                  # 教学 demo，与公司无关
+docs/public/demos/<slug>/                # A 级：浏览器直接可看的教学 demo
+examples/mini-monorepo/                  # B 级：教学 demo，clone 后需 install
 ```
 
 ## 发布流程
 
-1. 工作仓只读提炼  
-2. 脱敏成教学版正文  
-3. 配图并插入  
-4. 过 `content-policy/disclosure.md` checklist  
-5. 本地 `npm run dev` 预览  
-6. 确认后 commit / push `master`（Pages 自动部署）
+1. 工作仓只读提炼（先过价值门，全否则跳过）
+2. 按演示分级决定是否产出 A/B 级 demo
+3. 脱敏成教学版正文
+4. 配图并插入
+5. 过 `content-policy/disclosure.md` checklist
+6. 本地 `npm run dev` 预览
+7. 确认后 commit / push `master`（Pages 自动部署）
 
 > 本目录仅供写稿约束，不进入 VitePress 站点导航与页面。

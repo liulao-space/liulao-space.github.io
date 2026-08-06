@@ -1,8 +1,16 @@
+---
+title: 一侧配置、一侧展示：双端并行开发
+date: 2026-08-06
+tags: [nuxt, vue, contract-first, portal, upload, code-review]
+series: vibe-coding
+---
+
 # 一侧配置、一侧展示：同一条需求的双端并行开发
 
 > 系列：Vibe Coding · 2026-08-06  
 > 标签：`nuxt` `vue` `contract-first` `portal` `upload` `code-review`  
 > 说明：教学示例，统一使用虚构项目名 `learnspace`。  
+> 在线预览：[Hero 动效演示](/demos/hero-animations/) · [吸顶侧栏 Scroll-Spy 演示](/demos/scroll-spy/)  
 > 配图：温暖纸感 + 便签笔记风示意图；本文图为占位，提示词在 `content-policy/prompts/vibe-coding/`，接入生图模型后重出。
 
 ## 背景

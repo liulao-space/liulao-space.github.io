@@ -18,6 +18,7 @@ export default defineConfig({
       { text: 'Vibe Coding', link: '/vibe-coding/' },
       { text: '知识点', link: '/notes/' },
       { text: '案例', link: '/examples/' },
+      { text: '标签', link: '/tags' },
     ],
     sidebar: {
       '/vibe-coding/': [

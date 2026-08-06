@@ -10,6 +10,7 @@ import { join, resolve, dirname } from 'node:path'
 
 const ROOT = resolve(import.meta.dirname, '..')
 const DOCS = join(ROOT, 'docs')
+const PUBLIC = join(DOCS, 'public')
 
 function walk(dir, files = []) {
   for (const entry of readdirSync(dir)) {
@@ -51,7 +52,17 @@ for (const file of files) {
         : targetPath + '.md'
     const htmlFallback = target.startsWith('/') ? join(targetPath.slice(0, -1) || '/', 'index.md') : null
 
-    const ok = existsSync(candidate) || (htmlFallback && existsSync(htmlFallback))
+    // 静态资源：public/ 原样发布到站点根（/demos/xxx/ → docs/public/demos/xxx/index.html）
+    const publicTarget = target.startsWith('/')
+      ? join(PUBLIC, target.slice(1))
+      : ''
+    const publicCandidate = target.endsWith('/')
+      ? join(publicTarget, 'index.html')
+      : publicTarget || ''
+
+    const ok = existsSync(candidate)
+      || (htmlFallback && existsSync(htmlFallback))
+      || (publicCandidate && existsSync(publicCandidate))
     if (!ok) {
       errors++
       console.error(`✗ ${file.replace(DOCS + '/', '')} → ${raw}`)

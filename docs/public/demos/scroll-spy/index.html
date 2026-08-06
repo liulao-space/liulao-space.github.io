@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>吸顶侧栏 Scroll-Spy 教学演示</title>
+<meta name="description" content="Vibe Coding 教学演示：sticky 侧栏 + getBoundingClientRect 滚动高亮判定 + scroll-margin-top">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #F6F1E7;
+    color: #2C2416;
+    padding-bottom: 80px;
+  }
+
+  /* 吸顶头部：demo 里用它来展示 offsetTop 与 scroll-margin-top */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    height: 64px;
+    background: linear-gradient(90deg, #14458C, #1E6FD9);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 28px;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(30, 58, 95, 0.25);
+  }
+  .header small { font-weight: 400; opacity: 0.75; margin-left: 12px; font-size: 12px; }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 28px 24px 0;
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+  }
+
+  /* 左侧 sticky 侧栏 */
+  .side-nav {
+    position: sticky;
+    top: 88px;               /* = 头部 64px + 间距 24px（即 offsetTop prop） */
+    width: 220px;
+    flex-shrink: 0;
+    background: #FFFBF0;
+    border: 1px solid #F0D9A0;
+    border-radius: 14px;
+    padding: 10px 8px;
+    box-shadow: 0 8px 20px rgba(139, 115, 85, 0.14);
+  }
+  .side-nav__title {
+    font-size: 13px;
+    color: #8A7A62;
+    padding: 6px 12px 10px;
+    border-bottom: 1px dashed #E3D8C2;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .side-nav__item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 9px 12px;
+    border: none;
+    border-radius: 9px;
+    background: transparent;
+    font-size: 14px;
+    color: #5C4A2A;
+    cursor: pointer;
+  }
+  .side-nav__item:hover { background: #F5EFE0; }
+  .side-nav__item.is-active {
+    background: #D7EBFF;
+    color: #1E3A5F;
+    font-weight: 700;
+  }
+  .side-nav__count { float: right; color: #9A9080; font-size: 12px; }
+
+  /* 右侧内容区 */
+  .content { flex: 1; min-width: 0; }
+
+  .section {
+    background: #FFFDF8;
+    border: 1px solid #F0E4CC;
+    border-radius: 16px;
+    padding: 44px 36px;
+    margin-bottom: 24px;
+    min-height: 420px;
+  }
+  .section h2 { font-size: 24px; color: #1E3A5F; margin-bottom: 14px; }
+  .section p { font-size: 14px; line-height: 2; color: #5C4A2A; max-width: 62ch; }
+  .section code {
+    background: #EFE8DB;
+    padding: 1px 6px;
+    border-radius: 5px;
+    font-size: 13px;
+  }
+
+  /* 锚点：让吸顶头部不再遮挡（关键一行） */
+  .section { scroll-margin-top: 88px; }
+
+  .legend {
+    max-width: 1080px;
+    margin: 8px auto 0;
+    padding: 0 24px;
+    font-size: 12px;
+    color: #9A9080;
+    line-height: 1.9;
+  }
+  .legend code {
+    background: #EFE8DB;
+    padding: 1px 6px;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+
+  <header class="header">
+    Scroll-Spy 教学演示
+    <small>sticky 侧栏 + 滚动高亮 + scroll-margin-top</small>
+  </header>
+
+  <div class="wrap">
+    <aside class="side-nav" id="sideNav">
+      <div class="side-nav__title">本页导航</div>
+      <button class="side-nav__item is-active" data-key="outline">课程大纲 <span class="side-nav__count">45</span></button>
+      <button class="side-nav__item" data-key="universe">知识宇宙</button>
+      <button class="side-nav__item" data-key="ability">能力图谱</button>
+      <button class="side-nav__item" data-key="question">问题图谱 <span class="side-nav__count">12</span></button>
+    </aside>
+
+    <main class="content">
+      <section class="section" id="outline">
+        <h2>课程大纲</h2>
+        <p>第一个模块。滚动页面，当它的顶部越过吸顶头部（<code>getBoundingClientRect().top - offsetTop &lt;= 0</code>）时，左侧对应项会高亮。</p>
+        <p>点击左侧「课程大纲」，会通过 <code>scrollIntoView({ behavior: 'smooth' })</code> 平滑滚回这里；配合 <code>scroll-margin-top: 88px</code>，标题不会被吸顶头部遮住。</p>
+      </section>
+      <section class="section" id="universe">
+        <h2>知识宇宙</h2>
+        <p>第二个模块。高亮逻辑是「取最后一个已经越过视口顶的 section」——所以滚动到这里时，左侧高亮会从「课程大纲」切到「知识宇宙」。</p>
+        <p>实现上只有一个滚动监听：<code>window.addEventListener('scroll', onScroll, { passive: true })</code>，每帧遍历导航项对比位置，最后统一写入一个 <code>activeKey</code>，渲染层只做一次对比。</p>
+      </section>
+      <section class="section" id="ability">
+        <h2>能力图谱</h2>
+        <p>第三个模块。注意每块 section 都有 <code>id</code>，它就是侧栏按钮的 <code>data-key</code>——这是「key = id」的隐式契约，页面与导航靠命名约定对齐。</p>
+        <p>如果某个 id 写错，点击会静默失效；一个稳妥做法是在 <code>onMounted</code> 时校验所有 key 都能 <code>getElementById</code> 到。</p>
+      </section>
+      <section class="section" id="question">
+        <h2>问题图谱</h2>
+        <p>最后一个模块。滚动到底部回到顶部，高亮会依次退回。整个 demo 共一个 <code>scroll</code> 监听、四个 <code>getBoundingClientRect</code> 判断，没有其他逻辑。</p>
+        <p>关键三行：<code>el.getBoundingClientRect().top - offsetTop &lt;= 0</code> 判定「已顶格」；<code>scroll-margin-top</code> 让出头部；<code>{ passive: true }</code> 避免阻塞滚动。</p>
+      </section>
+    </main>
+  </div>
+
+  <p class="legend">
+    对应日志：<a href="/vibe-coding/2026-08-06-course-display-duo-dev" style="color:#3E94FF">一侧配置、一侧展示：双端并行开发</a> ·
+    核心代码：<code>activeKey</code> 单值状态 + <code>onScroll</code> 遍历取最后顶格项 + <code>scrollIntoView({behavior:'smooth'})</code> ·
+    offsetTop = 88 由「头部 64 + 间距 24」算出，可作 prop 注入。
+  </p>
+
+<script>
+  // 教学版 Scroll-Spy：与日志中的实现一一对应
+  const OFFSET_TOP = 88
+  const items = Array.from(document.querySelectorAll('.side-nav__item'))
+  const navBtns = items.map((btn) => ({ key: btn.dataset.key, btn }))
+
+  let activeKey = navBtns[0].key
+
+  function scrollTo(key) {
+    activeKey = key
+    render()
+    document.getElementById(key)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
+  function onScroll() {
+    let current = navBtns[0].key
+    for (const { key } of navBtns) {
+      const el = document.getElementById(key)
+      if (el && el.getBoundingClientRect().top - OFFSET_TOP <= 0) current = key
+    }
+    if (current !== activeKey) {
+      activeKey = current
+      render()
+    }
+  }
+
+  function render() {
+    for (const { key, btn } of navBtns) btn.classList.toggle('is-active', key === activeKey)
+  }
+
+  navBtns.forEach(({ key, btn }) => btn.addEventListener('click', () => scrollTo(key)))
+  window.addEventListener('scroll', onScroll, { passive: true })
+</script>
+</body>
+</html>
