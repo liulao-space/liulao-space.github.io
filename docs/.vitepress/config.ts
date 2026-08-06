@@ -33,6 +33,10 @@ export default defineConfig({
               text: '从单仓 SPA 到 pnpm Monorepo',
               link: '/vibe-coding/2026-08-05-pnpm-monorepo-from-spa',
             },
+            {
+              text: '一侧配置、一侧展示：双端并行开发',
+              link: '/vibe-coding/2026-08-06-course-display-duo-dev',
+            },
           ],
         },
       ],

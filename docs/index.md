@@ -7,7 +7,7 @@ hero:
   actions:
     - theme: brand
       text: 最新日志
-      link: /vibe-coding/2026-08-05-pnpm-monorepo-from-spa
+      link: /vibe-coding/2026-08-06-course-display-duo-dev
     - theme: alt
       text: 知识点
       link: /notes/
@@ -36,6 +36,7 @@ features:
 
 | 想了解… | 去读 |
 |---------|------|
-| 单仓 SPA 如何拆成 pnpm monorepo | [最新日志](/vibe-coding/2026-08-05-pnpm-monorepo-from-spa) |
+| 同一条需求如何在配置端/展示端分头并行 | [最新日志](/vibe-coding/2026-08-06-course-display-duo-dev) |
+| 单仓 SPA 如何拆成 pnpm monorepo | [上一期日志](/vibe-coding/2026-08-05-pnpm-monorepo-from-spa) |
 | monorepo / pnpm / Nuxt 概念 | [知识点索引](/notes/) |
 | 对照可运行示例 | [案例列表](/examples/) |

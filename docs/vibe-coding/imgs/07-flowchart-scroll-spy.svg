@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <pattern id="dots7" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.1" fill="#D6D0C4" opacity="0.55"/>
+    </pattern>
+    <filter id="s7" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#8B7355" flood-opacity="0.16"/>
+    </filter>
+    <linearGradient id="paper7" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FDFBF7"/>
+      <stop offset="100%" stop-color="#F6F1E7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#paper7)"/>
+  <rect width="1280" height="720" fill="url(#dots7)"/>
+
+  <g filter="url(#s7)" transform="translate(360 32) rotate(-1)">
+    <rect width="560" height="62" rx="10" fill="#D7EBFF"/>
+    <text x="280" y="41" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#1E3A5F">吸顶侧栏：滚动高亮判定</text>
+  </g>
+
+  <g font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">
+    <g filter="url(#s7)" transform="translate(120 150) rotate(-1.2)">
+      <rect width="300" height="470" rx="14" fill="#FFF4D6"/>
+      <text x="150" y="44" text-anchor="middle" font-size="20" font-weight="700" fill="#8A5A00">sticky 侧栏</text>
+      <circle cx="56" cy="120" r="18" fill="#3E94FF"/>
+      <text x="56" y="126" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">1</text>
+      <text x="100" y="126" font-size="16" fill="#5C4A2A">点击 tab →</text>
+      <text x="100" y="150" font-size="15" fill="#8A7A62">scrollIntoView 平滑滚动</text>
+      <circle cx="56" cy="230" r="18" fill="#3E94FF"/>
+      <text x="56" y="236" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">2</text>
+      <text x="100" y="236" font-size="16" fill="#5C4A2A">scroll 监听（passive）</text>
+      <circle cx="56" cy="340" r="18" fill="#3E94FF"/>
+      <text x="56" y="346" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">3</text>
+      <text x="100" y="346" font-size="16" fill="#5C4A2A">遍历 items 取最后</text>
+      <text x="100" y="370" font-size="15" fill="#8A7A62">rect.top − offsetTop ≤ 0 的 key</text>
+      <circle cx="56" cy="440" r="18" fill="#3E94FF"/>
+      <text x="56" y="446" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">4</text>
+      <text x="100" y="446" font-size="16" fill="#5C4A2A">高亮 activeKey</text>
+    </g>
+
+    <g filter="url(#s7)" transform="translate(640 150) rotate(0.6)">
+      <rect width="520" height="470" rx="14" fill="#FFFBF0" stroke="#F0D9A0" stroke-width="1.5"/>
+      <rect x="0" y="0" width="520" height="56" rx="14" fill="#E8E2D5"/>
+      <text x="260" y="37" text-anchor="middle" font-size="18" font-weight="700" fill="#5C4A2A">页面 section（id = item.key）</text>
+      <rect x="60" y="90" width="400" height="66" rx="10" fill="#E6F4DC"/>
+      <text x="260" y="130" text-anchor="middle" font-size="16" fill="#2F5014">课程大纲 outline  ← 高亮</text>
+      <rect x="60" y="180" width="400" height="66" rx="10" fill="#F5F0E6"/>
+      <text x="260" y="220" text-anchor="middle" font-size="16" fill="#8A7A62">知识宇宙 universe</text>
+      <rect x="60" y="270" width="400" height="66" rx="10" fill="#F5F0E6"/>
+      <text x="260" y="310" text-anchor="middle" font-size="16" fill="#8A7A62">能力图谱 ability</text>
+      <rect x="60" y="360" width="400" height="66" rx="10" fill="#F5F0E6"/>
+      <text x="260" y="400" text-anchor="middle" font-size="16" fill="#8A7A62">问题图谱 question</text>
+      <line x1="60" y1="440" x2="460" y2="440" stroke="#C9C1B2" stroke-dasharray="6 6" stroke-width="2"/>
+      <text x="260" y="462" text-anchor="middle" font-size="14" fill="#9A9080">scroll-margin-top 让出吸顶头部</text>
+    </g>
+  </g>
+
+  <g filter="url(#s7)" transform="translate(360 548) rotate(-1)">
+    <rect width="560" height="110" rx="12" fill="#FFFBF0" stroke="#F0D9A0" stroke-width="1.5"/>
+    <text x="280" y="54" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="18" fill="#9A9080">配图占位（wireframe）</text>
+    <text x="280" y="82" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="14" fill="#B0A695">提示词：content-policy/prompts/vibe-coding/07-flowchart-scroll-spy.md</text>
+  </g>
+</svg>
