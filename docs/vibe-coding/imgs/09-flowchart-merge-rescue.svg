@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <pattern id="dots9" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.1" fill="#D6D0C4" opacity="0.55"/>
+    </pattern>
+    <filter id="s9" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#8B7355" flood-opacity="0.16"/>
+    </filter>
+    <linearGradient id="paper9" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FDFBF7"/>
+      <stop offset="100%" stop-color="#F6F1E7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#paper9)"/>
+  <rect width="1280" height="720" fill="url(#dots9)"/>
+
+  <g filter="url(#s9)" transform="translate(330 28) rotate(-1)">
+    <rect width="620" height="62" rx="10" fill="#D7EBFF"/>
+    <text x="310" y="41" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#1E3A5F">救援：abort → 只挑真改动 → 重建分支</text>
+  </g>
+
+  <g font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">
+    <g filter="url(#s9)" transform="translate(80 120) rotate(-1.2)">
+      <rect width="340" height="170" rx="14" fill="#FFF4D6"/>
+      <rect x="0" y="0" width="340" height="48" rx="14" fill="#F5C451"/>
+      <text x="170" y="32" text-anchor="middle" font-size="18" font-weight="700" fill="#6B4E12">1 · 诊断</text>
+      <text x="170" y="92" text-anchor="middle" font-size="15" fill="#6B4E12">git log develop..分支</text>
+      <text x="170" y="118" text-anchor="middle" font-size="15" fill="#6B4E12">只有 1 个真提交 / 5 行</text>
+    </g>
+    <g filter="url(#s9)" transform="translate(470 120) rotate(0.4)">
+      <rect width="340" height="170" rx="14" fill="#FBE3E0"/>
+      <rect x="0" y="0" width="340" height="48" rx="14" fill="#E8A9A2"/>
+      <text x="170" y="32" text-anchor="middle" font-size="18" font-weight="700" fill="#7A2E2E">2 · 放弃危险合并</text>
+      <text x="170" y="92" text-anchor="middle" font-size="15" fill="#8A3A32">git merge --abort</text>
+      <text x="170" y="118" text-anchor="middle" font-size="15" fill="#8A3A32">回到干净主干</text>
+    </g>
+    <g filter="url(#s9)" transform="translate(860 120) rotate(1)">
+      <rect width="340" height="170" rx="14" fill="#E6F4DC"/>
+      <rect x="0" y="0" width="340" height="48" rx="14" fill="#BFE3A8"/>
+      <text x="170" y="32" text-anchor="middle" font-size="18" font-weight="700" fill="#2F5014">3 · cherry-pick 真改动</text>
+      <text x="170" y="92" text-anchor="middle" font-size="15" fill="#3E6B22">git cherry-pick e50b57a6</text>
+      <text x="170" y="118" text-anchor="middle" font-size="15" fill="#5C8450">只搬 5 行，不带坏历史</text>
+    </g>
+  </g>
+
+  <g font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">
+    <path d="M420 210 C 470 250 470 250 500 235" stroke="#3E94FF" stroke-width="3" fill="none"/>
+    <path d="M810 210 C 770 250 770 250 740 235" stroke="#3E94FF" stroke-width="3" fill="none"/>
+  </g>
+
+  <g filter="url(#s9)" transform="translate(200 380) rotate(-0.6)">
+    <rect width="880" height="130" rx="16" fill="#FFFBF0" stroke="#F0D9A0" stroke-width="1.5"/>
+    <text x="440" y="48" text-anchor="middle" font-size="18" font-weight="700" fill="#1E3A5F">4 · 验证再推送</text>
+    <text x="440" y="84" text-anchor="middle" font-size="16" fill="#5C4A2A">git diff --stat develop..HEAD → 只剩 1 个文件 / +5 行</text>
+    <text x="440" y="112" text-anchor="middle" font-size="16" fill="#5C4A2A">git push</text>
+  </g>
+
+  <g filter="url(#s9)" transform="translate(200 540) rotate(0.6)">
+    <rect width="880" height="130" rx="16" fill="#FBE3E0" stroke="#E8A9A2" stroke-width="1.5"/>
+    <text x="440" y="48" text-anchor="middle" font-size="18" font-weight="700" fill="#7A2E2E">5 · 重建被污染的私有分支</text>
+    <text x="440" y="84" text-anchor="middle" font-size="15" fill="#8A3A32">git reset --hard origin/develop</text>
+    <text x="440" y="112" text-anchor="middle" font-size="15" fill="#8A3A32">git push --force-with-lease</text>
+  </g>
+
+  <g filter="url(#s9)" transform="translate(360 690) rotate(-1)">
+    <rect width="560" height="0" rx="10" fill="#D7EBFF"/>
+  </g>
+</svg>

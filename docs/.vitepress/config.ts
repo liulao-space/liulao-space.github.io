@@ -38,6 +38,10 @@ export default defineConfig({
               text: '一侧配置、一侧展示：双端并行开发',
               link: '/vibe-coding/2026-08-06-course-display-duo-dev',
             },
+            {
+              text: '手滑合并错分支：一次 revert 差点删掉整个功能',
+              link: '/vibe-coding/2026-08-07-revert-merge-trap',
+            },
           ],
         },
       ],

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <pattern id="dots8" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.1" fill="#D6D0C4" opacity="0.55"/>
+    </pattern>
+    <filter id="s8" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#8B7355" flood-opacity="0.16"/>
+    </filter>
+    <linearGradient id="paper8" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FDFBF7"/>
+      <stop offset="100%" stop-color="#F6F1E7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#paper8)"/>
+  <rect width="1280" height="720" fill="url(#dots8)"/>
+
+  <g filter="url(#s8)" transform="translate(330 30) rotate(-1)">
+    <rect width="620" height="62" rx="10" fill="#FBE3E0"/>
+    <text x="310" y="41" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#7A2E2E">revert 合并不等于撤销，是反向补丁</text>
+  </g>
+
+  <g font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">
+    <g filter="url(#s8)" transform="translate(90 130) rotate(-1)">
+      <rect width="340" height="160" rx="14" fill="#E6F4DC"/>
+      <rect x="0" y="0" width="340" height="48" rx="14" fill="#BFE3A8"/>
+      <text x="170" y="32" text-anchor="middle" font-size="18" font-weight="700" fill="#2F5014">误合并 merge M</text>
+      <text x="170" y="90" text-anchor="middle" font-size="16" fill="#3E6B22">feat/role-manager</text>
+      <text x="170" y="118" text-anchor="middle" font-size="15" fill="#5C8450">+103 文件 / +1万行</text>
+    </g>
+    <g filter="url(#s8)" transform="translate(470 130) rotate(0.6)">
+      <rect width="340" height="160" rx="14" fill="#FFF4D6"/>
+      <rect x="0" y="0" width="340" height="48" rx="14" fill="#F5C451"/>
+      <text x="170" y="32" text-anchor="middle" font-size="18" font-weight="700" fill="#6B4E12">revert 提交 R</text>
+      <text x="170" y="90" text-anchor="middle" font-size="16" fill="#7A5C1E">git revert -m 1 M</text>
+      <text x="170" y="118" text-anchor="middle" font-size="15" fill="#A67C2D">−103 文件 / −1万行</text>
+    </g>
+    <g filter="url(#s8)" transform="translate(850 130) rotate(1)">
+      <rect width="340" height="160" rx="14" fill="#FBE3E0"/>
+      <rect x="0" y="0" width="340" height="48" rx="14" fill="#E8A9A2"/>
+      <text x="170" y="32" text-anchor="middle" font-size="18" font-weight="700" fill="#7A2E2E">再次 merge</text>
+      <text x="170" y="90" text-anchor="middle" font-size="16" fill="#8A3A32">合并进 develop</text>
+      <text x="170" y="118" text-anchor="middle" font-size="15" fill="#A55A50">R 的删除被当普通 diff 应用</text>
+    </g>
+  </g>
+
+  <g font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">
+    <path d="M430 200 C 470 240 470 250 500 240" stroke="#3E94FF" stroke-width="3" fill="none" marker-end="url(#arr8)"/>
+    <path d="M810 200 C 770 240 770 250 740 240" stroke="#C0503D" stroke-width="3" fill="none"/>
+  </g>
+
+  <g filter="url(#s8)" transform="translate(210 420) rotate(-0.8)">
+    <rect width="860" height="190" rx="16" fill="#FFFBF0" stroke="#F0D9A0" stroke-width="1.5"/>
+    <text x="430" y="52" text-anchor="middle" font-size="20" font-weight="700" fill="#7A2E2E">develop 合并结果</text>
+    <text x="430" y="92" text-anchor="middle" font-size="17" fill="#8A3A32">Unmerged paths：只有 3 个显式冲突</text>
+    <text x="430" y="126" text-anchor="middle" font-size="17" fill="#8A3A32">Changes to be committed：deleted 100+ 文件</text>
+    <text x="430" y="162" text-anchor="middle" font-size="15" fill="#9A9080">陷阱：删除是「静默暂存」，commit 收尾就真的删掉了</text>
+  </g>
+
+  <g filter="url(#s8)" transform="translate(360 636) rotate(-1)">
+    <rect width="560" height="62" rx="10" fill="#D7EBFF"/>
+    <text x="280" y="40" text-anchor="middle" font-size="17" font-weight="700" fill="#1E3A5F">配图提示词：content-policy/prompts/vibe-coding/08-revert-merge-trap.md</text>
+  </g>
+</svg>
